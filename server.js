@@ -1,12 +1,20 @@
 const express = require('express');
+const path = require('path');
+const cors = require('cors');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+dotenv.config();
+
+
+
+
 
 // إعداد الخادم
 const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
-const port = process.env.PORT || 5000;  // Heroku يقوم بتحديد المنفذ تلقائيًا
-
+const port = process.env.PORT || 5000; // Heroku يقوم بتحديد المنفذ تلقائيًا
+app.use(cors());
 // Middleware لتفسير البيانات الواردة في الجسم (body)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -20,8 +28,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false, // تستخدم البورت 587 للبروتوكول الغير مشفر
     auth: {
-        user: process.env.SMTP_USER, // استخدام متغير بيئي
-        pass: process.env.SMTP_PASS, // استخدام متغير بيئي
+        user: "8080c0001@smtp-brevo.com", // استخدام متغير بيئي
+        pass: "LxpFwhNdtqBngfKV", // استخدام متغير بيئي
     },
 });
 
@@ -35,7 +43,7 @@ app.post('/send-code', (req, res) => {
 
     // إعداد البريد الإلكتروني
     const mailOptions = {
-        from: process.env.SMTP_USER, // من البريد الإلكتروني الذي قمت بتوثيقه
+        from: "jionbofi@gmail.com", // من البريد الإلكتروني الذي قمت بتوثيقه
         to: email,
         subject: 'رمز التحقق الخاص بك',
         text: `رمز التحقق الخاص بك هو: ${verificationCode}`,
