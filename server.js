@@ -19,7 +19,11 @@ dotenv.config();
 
 // إعداد الخادم
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
+// نقطة النهاية لتقديم index.html عند زيارة الجذر
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+  
 const port = process.env.PORT || 5000; // Heroku يقوم بتحديد المنفذ تلقائيًا
 app.use(cors());
 // Middleware لتفسير البيانات الواردة في الجسم (body)
