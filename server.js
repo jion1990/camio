@@ -3,14 +3,10 @@ const path = require('path');
 
 const cors = require('cors');
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 91fd2200e80a5229152d83d4bd1445a895fff6df
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const  dotenv = require('dotenv');
 dotenv.config();
 
 
