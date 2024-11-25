@@ -98,17 +98,38 @@
         </header>
         <div class="container">
             <h2>أدخل رمز التحقق</h2>
-            <form id="verifyForm">
+            <form id="verifyForm" onsubmit="verifyCode(event)">
                 <label for="verificationCode">رمز التحقق:</label>
                 <input type="text" id="verificationCode" name="verificationCode" placeholder="XXXX" required>
-                <button harf="choice" type="submit">تحقق</button>
+                <button type="submit">تحقق</button>
             </form>
         </div>
         <footer>
             تم تطوير بواسطة مدرسة jionbofi
         </footer>
     </div>
+
+    <script>
+        function verifyCode(event) {
+            event.preventDefault(); // لمنع إعادة تحميل الصفحة عند تقديم النموذج
+
+            const verificationCode = document.getElementById('verificationCode').value;
+
+            if (!verificationCode) {
+                alert('يرجى إدخال رمز التحقق');
+                return;
+            }
+
+            // افتراضًا أن عملية التحقق تمت بنجاح
+            alert('تم التحقق من الرمز بنجاح');
+
+            // التوجيه إلى صفحة choice.html بعد التحقق بنجاح
+            window.location.href = "choice.html";
+        }
+    </script>
 </body>
 </html>
+
+
 
 
