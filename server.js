@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT ||1988; // Render قد تستخدم المنفذ 10000
+const port = process.env.PORT ||3000; // Render قد تستخدم المنفذ 10000
 app.use(express.static(path.join(__dirname, 'index.html')));
 app.use(cors());
 app.use(bodyParser.json());
@@ -59,8 +59,8 @@ app.post('/verify-code', (req, res) => {
     }
 });
 
-app.listen(1988||process.env.PORT, () => {
-    console.log(`Server is running and accessible at http://:${port}`);
+app.listen(3000|process.env.PORT, () => {
+    console.log(`Server is running and accessible at https://eager-lofty-mimosa.glitch.me/test:${port}`);
 });
 
 
