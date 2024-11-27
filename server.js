@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT ||10000; // Render قد تستخدم المنفذ 10000
+const port = process.env.PORT ||3000; // Render قد تستخدم المنفذ 10000
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -58,7 +58,7 @@ app.post('/verify-code', (req, res) => {
     }
 });
 
-app.listen(10000||process.env.PORT, () => {
+app.listen(3000||process.env.PORT, () => {
     console.log(`Server is running and accessible at http://:${port}`);
 });
 
