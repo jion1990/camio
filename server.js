@@ -10,13 +10,16 @@ const app = express();
 const port = process.env.PORT || 3000;  // استخدام المنفذ من البيئة أو 3000 افتراضيًا
 
 // إعداد CORS للسماح بنطاق معين
-const corsOptions = {
-    origin: '*',  // النطاق الذي يمكنك السماح له
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
-};
+//const corsOptions = {
+   // origin: '*',  // النطاق الذي يمكنك السماح له
+   // methods: ['GET', 'POST'],
+    //allowedHeaders: ['Content-Type'],
+//};
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors({
+  origin: '*', // استبدلها بالنطاق الذي تريد السماح له
+}));        
 app.use(express.static(path.join(__dirname, 'public', 'index.html')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
