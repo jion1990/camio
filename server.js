@@ -7,9 +7,17 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-const port = process.env.PORT ||3000; // Render قد تستخدم المنفذ 10000
-app.use(express.static(path.join(__dirname, 'public','index.html')));
-app.use(cors());
+const port = process.env.PORT || 3000;  // استخدام المنفذ من البيئة أو 3000 افتراضيًا
+
+// إعداد CORS للسماح بنطاق معين
+const corsOptions = {
+    origin: ['https://camio.vercel.app'],  // النطاق الذي يمكنك السماح له
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
+};
+
+app.use(cors(corsOptions));
+app.use(express.static(path.join(__dirname, 'public', 'index.html')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -20,8 +28,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: " 8080c0001@smtp-brevo.com",
-        pass: " LxpFwhNdtqBngfKV",
+        user: '8080c0001@smtp-brevo.com',
+        pass: 'LxpFwhNdtqBngfKV',
     },
 });
 
@@ -59,9 +67,10 @@ app.post('/verify-code', (req, res) => {
     }
 });
 
-app.listen(3000|process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`Server is running and accessible at https://eager-lofty-mimosa.glitch.me/test:${port}`);
 });
+
 
 
 
