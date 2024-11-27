@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            direction: rtl;
+        }
+        .iphone-frame {
+            width: 375px;
+            height: 812px;
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            border: 3px solid #ddd;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            position: relative;
+        }
+        .back-arrow {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .back-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+        .instructions {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        .email-input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .send-code-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        .send-code-button:hover {
+            background-color: #0056b3;
+        }
+        .terms {
+            font-size: 14px;
+            color: #555;
+            margin: 15px 0;
+        }
+        .terms a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .terms a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone-frame">
+        <header>
+            <a href="main.html" class="back-arrow">←</a>
+            تسجيل الدخول
+        </header>
+        <div class="container">
+            <p class="instructions">يرجى إدخال بريدك الإلكتروني وسنرسل لك رمز التحقق</p>
+            <div class="input-container">
+                <input type="email" class="email-input" id="email" placeholder="البريد الإلكتروني">
+                <button class="send-code-button" onclick="sendVerificationCode()">إرسال رمز التحقق</button>
+            </div>
+            <p class="terms">
+                بالموافقة، فإنك توافق على 
+                <a href="#">الشروط والأحكام</a> و 
+                <a href="#">سياسة الخصوصية</a>.
+            </p>
+        </div>
+        <footer>
+            تم تطوير بواسطة مدرسة jionbofi
+        </footer>
+    </div>
+
+    <script>
+        const SERVER_URL = 'https://eager-lofty-mimosa.glitch.me/send-code';
+ // استبدل بعنوان الخادم الفعلي
+
+        async function sendVerificationCode() {
+            const emailInput = document.getElementById('email').value;
+
+            // التحقق من صحة البريد الإلكتروني
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput)) {
+                alert('يرجى إدخال بريد إلكتروني صالح.');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${SERVER_URL}/send-code`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: emailInput }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(data.message);
+                    window.location.href = "verify.html";  // التوجيه إلى صفحة التحقق
+                } else {
+                    alert(`خطأ: ${data.message}`);
+                }
+            } catch (error) {
+                console.error(error);
+                alert('حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
