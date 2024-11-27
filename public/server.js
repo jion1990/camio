@@ -8,7 +8,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT ||3000; // Render قد تستخدم المنفذ 10000
-app.use(express.static(path.join(__dirname, 'index.html')));
+app.use(express.static(path.join(__dirname, 'public','index.html')));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
