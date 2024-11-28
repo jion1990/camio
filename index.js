@@ -4,40 +4,40 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
 const dotenv = require('dotenv');
-<<<<<<< HEAD
+
 const { createProxyMiddleware } = require('http-proxy-middleware'); // استيراد مكتبة البروكسي
 
-=======
->>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
+
+
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;  // استخدام المنفذ من البيئة أو 3000 افتراضيًا
 
 const corsOptions = {
-<<<<<<< HEAD
+
   origin: 'https://camio-e0jbnbtqk-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
-=======
+
   origin: 'https://camio-e0jbnbtqk-jionbofis-projects.vercel.app', // السماح للنطاق الخاص بك فقط
->>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
+
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
-<<<<<<< HEAD
-=======
+
+
 app.use(cors({
     origin: '*', // استبدل بهذا النطاق المصرح به
     methods: ['GET', 'POST'],          // حدد الطرق المسموح بها
     credentials: true                  // إذا كنت تستخدم ملفات تعريف الارتباط
 }));        
->>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
+
 app.use(express.static(path.join(__dirname, 'public', 'index.html')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-<<<<<<< HEAD
+
 // إعداد بروكسي للطلبات
 app.use('/send-code', createProxyMiddleware({
   target: 'https://camio-nem2qo9yr-jionbofis-projects.vercel.app',  // عنوان الخادم الفعلي
@@ -50,8 +50,8 @@ app.use('/send-code', createProxyMiddleware({
   },
 }));
 
-=======
->>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
+
+
 let sentVerificationCode = null;
 
 const transporter = nodemailer.createTransport({
@@ -106,7 +106,6 @@ app.listen(port, () => {
 
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
+
+
