@@ -10,14 +10,14 @@ const app = express();
 const port = process.env.PORT || 3000;  // استخدام المنفذ من البيئة أو 3000 افتراضيًا
 
 const corsOptions = {
-  origin: 'https://camio.vercel.app', // السماح للنطاق الخاص بك فقط
+  origin: 'https://camio-e0jbnbtqk-jionbofis-projects.vercel.app', // السماح للنطاق الخاص بك فقط
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
 app.use(cors({
-    origin: 'https://camio.vercel.app', // استبدل بهذا النطاق المصرح به
+    origin: '*', // استبدل بهذا النطاق المصرح به
     methods: ['GET', 'POST'],          // حدد الطرق المسموح بها
     credentials: true                  // إذا كنت تستخدم ملفات تعريف الارتباط
 }));        
