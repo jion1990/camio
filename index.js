@@ -16,9 +16,9 @@ const port = process.env.PORT || 3000;  // استخدام المنفذ من ال
 
 const corsOptions = {
 
-  origin: 'https://camio-e0jbnbtqk-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
+  origin: 'camio.vercel.app', // السماح بالنطاق الخاص بك فقط
 
-  origin: 'https://camio-e0jbnbtqk-jionbofis-projects.vercel.app', // السماح للنطاق الخاص بك فقط
+ 
 
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
