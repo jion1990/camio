@@ -1,6 +1,10 @@
 {
   "name": "jionbofi",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "2.0.0",
+>>>>>>> b71968ede0087f4e752378150e16abaed5fcf989
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
