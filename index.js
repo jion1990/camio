@@ -18,7 +18,9 @@ const port = process.env.PORT || 3000;  // استخدام المنفذ من ال
 
 //app.use(cors(corsOptions));
 app.use(cors({
-  origin: 'https://camio.vercel.app', // استبدلها بالنطاق الذي تريد السماح له
+    origin: 'https://camio.vercel.app', // استبدل بهذا النطاق المصرح به
+    methods: ['GET', 'POST'],          // حدد الطرق المسموح بها
+    credentials: true                  // إذا كنت تستخدم ملفات تعريف الارتباط
 }));        
 app.use(express.static(path.join(__dirname, 'public', 'index.html')));
 app.use(bodyParser.json());
