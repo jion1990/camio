@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;  // استخدام المنفذ من ال
 
 const corsOptions = {
 
-  origin: 'https://camio-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
+  origin: 'https://camio.vercel.app', // السماح بالنطاق الخاص بك فقط
 
  
 
@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // إعداد بروكسي للطلبات
 app.use('/send-code', createProxyMiddleware({
-  target: 'https://camio-nem2qo9yr-jionbofis-projects.vercel.app',  // عنوان الخادم الفعلي
+  target: 'https://camio.vercel.app',  // عنوان الخادم الفعلي
   changeOrigin: true,
   pathRewrite: {
     '^/send-code': '/send-code', // إعادة كتابة المسار
