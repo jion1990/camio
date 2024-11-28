@@ -9,14 +9,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;  // استخدام المنفذ من البيئة أو 3000 افتراضيًا
 
-// إعداد CORS للسماح بنطاق معين
-//const corsOptions = {
-   // origin: '*',  // النطاق الذي يمكنك السماح له
-   // methods: ['GET', 'POST'],
-    //allowedHeaders: ['Content-Type'],
-//};
+const corsOptions = {
+  origin: 'https://camio.vercel.app', // السماح للنطاق الخاص بك فقط
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(cors({
     origin: 'https://camio.vercel.app', // استبدل بهذا النطاق المصرح به
     methods: ['GET', 'POST'],          // حدد الطرق المسموح بها
