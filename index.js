@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'index.html' )));
+app.use(express.static(path.join(__dirname, 'public','index.html' )));
 
 // إعداد بروكسي للطلبات
 app.use(
