@@ -6,7 +6,13 @@
     "routes": [
         {
           "src": "/(.*)",
-          "dest": "/"
+          "methods": ["POST" ,"GET","PUT","DELETE","PATCH","OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS,GET",
+        "Access-Control-Allow-Headers": "Content-Type"
+      },
+      "dest": "/api/send-code"
         }
     ]
   }
