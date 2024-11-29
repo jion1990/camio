@@ -143,9 +143,9 @@
 
             try {
                 const response = await fetch(`${SERVER_URL}/send-code`, {
-                    method: 'POST',
+                    method: "POST" ,"GET","PUT","DELETE","PATCH","OPTIONS"',
                     headers: {
-                        'Content-Type': 'application/json',
+                        'Content-Type': 'application/json', 'Access-Control-Allow-Origin': "*",
                     },
                     body: JSON.stringify({ email: emailInput }),
                 });
