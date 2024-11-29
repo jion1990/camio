@@ -128,7 +128,7 @@
     </div>
 
     <script>
-        const SERVER_URL = 'https://camio-hhxrr4ssf-jionbofis-projects.vercel.app';
+        const SERVER_URL = 'https://camio.vercel.app';
  // استبدل بعنوان الخادم الفعلي
 
         async function sendVerificationCode() {
@@ -143,9 +143,9 @@
 
             try {
                 const response = await fetch(`${SERVER_URL}/send-code`, {
-                    method: "POST" ,"GET","PUT","DELETE","PATCH","OPTIONS",
+                    method: "POST" ,
                     headers: {
-                        'Content-Type': 'application/json', 'Access-Control-Allow-Origin': "*",
+                        'Content-Type': 'application/json', 
                     },
                     body: JSON.stringify({ email: emailInput }),
                 });
