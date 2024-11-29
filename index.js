@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 
 // إعداد CORS
 const corsOptions = {
-  origin: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
+  origin: 'https://camio.vercel.app', // السماح بالنطاق الخاص بك فقط
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -21,13 +21,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'public' )));
 
 // إعداد بروكسي للطلبات
 app.use(
   '/proxy-send-code',
   createProxyMiddleware({
-    target: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
+    target: 'https://camio-hhxrr4ssf-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
     changeOrigin: true,
     pathRewrite: { '^/proxy-send-code': '/send-code' }, // إعادة كتابة المسار
   })
