@@ -16,7 +16,7 @@ const port = process.env.PORT || 3000;  // استخدام المنفذ من ال
 
 const corsOptions = {
 
-  origin: 'https://camio.vercel.app', // السماح بالنطاق الخاص بك فقط
+  origin: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
 
  
 
@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // إعداد بروكسي للطلبات
 app.use('/send-code', createProxyMiddleware({
-  target: 'https://camio.vercel.app',  // عنوان الخادم الفعلي
+  target: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app',  // عنوان الخادم الفعلي
   changeOrigin: true,
   pathRewrite: {
     '^/send-code': '/send-code', // إعادة كتابة المسار
@@ -64,7 +64,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-app.get('/test', (req, res) => {
+app.get('/', (req, res) => {
     res.send('<h1>Welcome to the Verification Code API!</h1>');
 });
 
@@ -99,7 +99,7 @@ app.post('/verify-code', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running and accessible at https://eager-lofty-mimosa.glitch.me/test:${port}`);
+    console.log(`Server is running and accessible at https://:${port}`);
 });
 
 
