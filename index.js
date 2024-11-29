@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public','index.html')));
 app.use(
   '/proxy-send-code',
   createProxyMiddleware({
-    target: 'https://camio-n4xt3forj-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
+    target: 'https://camio-k8acpwx1x-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
     changeOrigin: true,
     pathRewrite: { '^/proxy-send-code': '/send-code' }, // إعادة كتابة المسار
   })
