@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 
 // إعداد CORS
 const corsOptions = {
-  origin: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
+  origin: 'https://camio-n4xt3forj-jionbofis-projects.vercel.app', // السماح بالنطاق الخاص بك فقط
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public','index.html')));
 app.use(
   '/proxy-send-code',
   createProxyMiddleware({
-    target: 'https://camio-ppl9msh7l-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
+    target: 'https://camio-n4xt3forj-jionbofis-projects.vercel.app', // عنوان الخادم الفعلي
     changeOrigin: true,
     pathRewrite: { '^/proxy-send-code': '/send-code' }, // إعادة كتابة المسار
   })
