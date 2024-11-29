@@ -13,8 +13,8 @@ const port = process.env.PORT || 3000;
 
 // إعداد CORS
 const corsOptions = {
-  origin: 'https://camio.vercel.app', // السماح بالنطاق الخاص بك فقط
-  methods: ['GET', 'POST', 'OPTIONS'],
+  origin: '*', // السماح بالنطاق الخاص بك فقط
+  methods: ["POST" ,"GET","PUT","DELETE","PATCH","OPTIONS"],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
