@@ -2,8 +2,13 @@
   "version": 2,
   "routes": [
     {
+      
       "src": "/api/send-code",
       "dest": "/api/send-code"
     }
+    {
+  "source": "/feedback/(?!general)",
+  "destination": "/api/feedback/general"
+}
   ]
 }
